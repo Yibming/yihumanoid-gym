@@ -1,0 +1,26 @@
+<launch>
+  <!-- 设置使用仿真时间
+  <param name="/use_sim_time" value="true" /> -->
+
+  <!-- 包含 Gazebo 的空世界 -->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+
+      <!-- 设置 Gazebo 使用仿真时间 -->
+      
+      <arg name="world_name" value="$(find gazebo_sim)/world/world.world" />
+      <!-- 其他 Gazebo 参数 -->
+      <arg name="use_sim_time" value="true" />
+      <arg name="paused" value="true" />
+      <arg name="gui" value="true" />
+      <arg name="headless" value="false" />
+      <arg name="debug" value="false" />
+  </include>
+
+  <!-- 加载机器人模型到 Gazebo -->
+  <param name="robot_description" textfile="$(find gazebo_sim)/urdf/yihumanoid_gazebo.urdf" />
+
+  <!-- 将机器人模型放入 Gazebo -->
+  <node pkg="gazebo_ros" type="spawn_model" name="model" respawn="false" output="screen"
+        args="-urdf -z 0.65 -model yihumanoid -param robot_description" />
+
+</launch>

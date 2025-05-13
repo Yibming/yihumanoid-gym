@@ -1,0 +1,29 @@
+<launch>
+    <!-- Load joint controller configurations from YAML file to parameter server -->
+    <rosparam file="$(find gazebo_sim)/config/controllers.yaml" command="load"/>
+
+    <!-- Load the controllers -->
+    <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
+        output="screen" ns="/orca_ydescription"
+        args="
+            Lleg_yaw_joint_effort_controller
+            Lleg_roll_joint_effort_controller
+            Lleg_thigh_joint_effort_controller
+            Lleg_calf_joint_effort_controller
+            Lleg_ankle_joint_effort_controller
+            
+            Rleg_yaw_joint_effort_controller
+            Rleg_roll_joint_effort_controller
+            Rleg_thigh_joint_effort_controller
+            Rleg_calf_joint_effort_controller
+            Rleg_ankle_joint_effort_controller
+
+            joint_state_controller
+        "
+    />
+
+    <!-- Robot state publisher node -->
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen">
+        <remap from="/joint_states" to="/orca_ydescription/joint_states"/>
+    </node>
+</launch>

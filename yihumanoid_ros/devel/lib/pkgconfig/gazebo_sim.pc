@@ -1,0 +1,8 @@
+prefix=/home/yi/humanoid-gym/yihumanoid_ros/devel
+
+Name: gazebo_sim
+Description: Description of gazebo_sim
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

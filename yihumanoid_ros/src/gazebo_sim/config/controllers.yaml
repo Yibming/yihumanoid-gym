@@ -1,0 +1,40 @@
+orca_ydescription:
+    # Publish all joint states -----------------------------------
+    joint_state_controller:
+        type: joint_state_controller/JointStateController
+        publish_rate: 1000
+
+    # Effort controllers: Left leg -----------------------------------
+    Lleg_yaw_joint_effort_controller:
+        type: effort_controllers/JointEffortController
+        joint: Lleg_yaw_joint
+    Lleg_roll_joint_effort_controller:
+        type: effort_controllers/JointEffortController
+        joint: Lleg_roll_joint
+    Lleg_thigh_joint_effort_controller:
+        type: effort_controllers/JointEffortController
+        joint: Lleg_thigh_joint
+    Lleg_calf_joint_effort_controller:
+        type: effort_controllers/JointEffortController
+        joint: Lleg_calf_joint
+    Lleg_ankle_joint_effort_controller:
+        type: effort_controllers/JointEffortController
+        joint: Lleg_ankle_joint
+
+    # Effort controllers: Right leg -----------------------------------
+    Rleg_yaw_joint_effort_controller:
+        type: effort_controllers/JointEffortController
+        joint: Rleg_yaw_joint
+    Rleg_roll_joint_effort_controller:
+        type: effort_controllers/JointEffortController
+        joint: Rleg_roll_joint
+    Rleg_thigh_joint_effort_controller:
+        type: effort_controllers/JointEffortController
+        joint: Rleg_thigh_joint
+    Rleg_calf_joint_effort_controller:
+        type: effort_controllers/JointEffortController
+        joint: Rleg_calf_joint
+    Rleg_ankle_joint_effort_controller:
+        type: effort_controllers/JointEffortController
+        joint: Rleg_ankle_joint
+        
